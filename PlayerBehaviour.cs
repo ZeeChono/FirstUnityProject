@@ -37,10 +37,10 @@ public class PlayerBehaviour : MonoBehaviour
     {
         _vInput = Input.GetAxis("Vertical") * MoveSpeed;
         _hInput = Input.GetAxis("Horizontal") * RotateSpeed;
-        /* old player movement control using transform 
+    /* old player movement control using transform 
         this.transform.Translate(Vector3.forward * _vInput * Time.deltaTime);
         this.transform.Rotate(Vector3.up * _hInput * Time.deltaTime);   // rotate the player through y-axis
-        */
+    */
         // update the conditions
         _isJumping = Input.GetKeyDown(KeyCode.Space) | _isJumping;
         _isShooting |= Input.GetMouseButtonDown(0);
@@ -65,7 +65,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (_isShooting)
         {
             GameObject newBullet = Instantiate(Bullet, this.transform.position + new Vector3(1, 0, 0), this.transform.rotation);
-            Debug.Log("Player's transform: " + this.transform.position);
+            /*Debug.Log("Player's transform: " + this.transform.position);*/
             Rigidbody BulletRB = newBullet.GetComponent<Rigidbody>();
             BulletRB.velocity = this.transform.forward * BulletSpeed;
         }      
